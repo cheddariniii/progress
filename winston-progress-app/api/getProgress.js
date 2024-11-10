@@ -3,7 +3,7 @@ import path from 'path';
 
 export default async function handler(req, res) {
     try {
-        const dataPath = path.join(process.cwd(), 'data.json');
+        const dataPath = path.join(__dirname, 'data.json'); // Corrected path to the file in the same folder
         const data = await readFile(dataPath, 'utf-8');
         res.status(200).json(JSON.parse(data));
     } catch (error) {
